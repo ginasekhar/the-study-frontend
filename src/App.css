@@ -3,21 +3,27 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 17vmin;
+  width: 17vmin;
+  border-radius: 80%;
   pointer-events: none;
+  display: inline-flex;
+  align-items: left;
+  float: left;
+  content:url("logo.png");
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 18vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -35,4 +41,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Home-page {
+  background-image: url("./studying.jpeg");
+  background-size: 1500px; 
+  min-height: 600px;
+  min-width: 1200px;
+  opacity: 0.5;
 }
