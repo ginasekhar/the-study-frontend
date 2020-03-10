@@ -8,7 +8,7 @@ export default function topicReducer (state = initialState, action) {
       return {...state, loading: true }
     case "LOADED_TOPICS" : 
       return {...state, 
-        subTopics: action.payload,
+        topics: action.payload,
         loading:false}
     case 'ADD_SUBTOPIC':
       return state
