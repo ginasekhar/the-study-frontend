@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import {getSubjects} from '../actions/subjects'
+import {getTopicsForSubject} from '../actions/subtopics'
 import { connect } from 'react-redux'
-
 
 class NavBar extends Component {
 
@@ -10,28 +10,42 @@ class NavBar extends Component {
     this.props.getSubjects()
   }
 
+  handleOnClick = (event) => { 
+    this.props.getTopicsForSubject(event.target.name)
+    // console.log ("I was clicked", event.target)
+  } 
+
   render() {
     
     this.props.subjects.map(subject => console.log(subject.id, subject.name))
-    let currentSubjectLink;
+    
     const subjectsList = this.props.subjects.map(subject => 
         <NavLink className="nav-button" 
-              to={`/subjects/${subject.id}`} key={subject.id}> {subject.name}
-        </NavLink> 
+        to={`/subjects/${subject.id}`} 
+        key={subject.id}> 
+        <button type="button" 
+                  onClick={this.handleOnClick} 
+                  name={subject.id}>
+                {subject.name}
+            </button>
+        </NavLink>
+        
       )
-
-    // const subjectsList = [<NavLink className="nav-links" to="/subjects/1" key="1">Vocabulary</NavLink>,
-    // <NavLink className="nav-links" to="/subjects/2" key="2">Biology</NavLink>,
-    // <NavLink className="nav-links" to="/subjects/3" key="3">French</NavLink>]
-
     return (
-      
-      <div className="navbar">
-        <ul> 
-        <NavLink className="nav-button" to="/">Home</NavLink>
-        {this.props.loading ? <h3> Loading... </h3> : subjectsList}
-        </ul> 
+      <div>
+        <div className="navbar">
+          <ul> 
+          <NavLink className="nav-button" to="/"> 
+            <button type="button">Home</button>
+          </NavLink>
+          {this.props.loading ? <h3> Loading... </h3> : subjectsList}
+          </ul> 
+        </div>
+        <div className="subtopics-container">
+          <SubTopicsContainer />
+        </div>
       </div>
+        
     )
   }
 }
@@ -44,7 +58,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {getSubjects}) (NavBar)
+export default connect(mapStateToProps, {getSubjects, getTopicsForSubject}) (NavBar)
 
 
 // export default NavBar
