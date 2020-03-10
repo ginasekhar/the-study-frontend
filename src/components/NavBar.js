@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import {getSubjects} from '../actions/subjects'
-import {getTopicsForSubject} from '../actions/subtopics'
+import {getTopics} from '../actions/topics'
 import { connect } from 'react-redux'
+import TopicsContainer from '../containers/TopicsContainer'
 
 class NavBar extends Component {
 
   componentDidMount() {
     this.props.getSubjects()
+    this.props.getTopics()
   }
 
-  handleOnClick = (event) => { 
-    this.props.getTopicsForSubject(event.target.name)
-    // console.log ("I was clicked", event.target)
-  } 
+  // handleOnClick = (event) => { 
+  //   event.preventDefault();
+  //   //this.props.getTopicsForSubject(event.target.id)
+  //   console.log ("I was clicked", event.target.id)
+  // } 
 
   render() {
     
@@ -21,15 +24,14 @@ class NavBar extends Component {
     
     const subjectsList = this.props.subjects.map(subject => 
         <NavLink className="nav-button" 
-        to={`/subjects/${subject.id}`} 
-        key={subject.id}> 
-        <button type="button" 
-                  onClick={this.handleOnClick} 
-                  name={subject.id}>
-                {subject.name}
+          to={`/subjects/${subject.id}/sub_topics`} 
+          key={subject.id}> 
+            <button type="button" 
+              // onClick={this.handleOnClick} 
+              id={subject.id}>
+              {subject.name}
             </button>
         </NavLink>
-        
       )
     return (
       <div>
@@ -41,9 +43,7 @@ class NavBar extends Component {
           {this.props.loading ? <h3> Loading... </h3> : subjectsList}
           </ul> 
         </div>
-        <div className="subtopics-container">
-          <SubTopicsContainer />
-        </div>
+        
       </div>
         
     )
@@ -51,14 +51,15 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log ("I am state", state) 
   return {
     subjects: state.subjects.subjects,
-    loading: state.subjects.loading
+    loading: state.subjects.loading,
+    topics: state.topics.topics,
+    loadingtopics: state.topics.loading
   }
 }
 
-export default connect(mapStateToProps, {getSubjects, getTopicsForSubject}) (NavBar)
+export default connect(mapStateToProps, {getSubjects, getTopics}) (NavBar)
 
 
 // export default NavBar

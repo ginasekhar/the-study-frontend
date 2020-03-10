@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlashCardsContainer from '../../containers/FlashCardsContainer'
+// import FlashCardsContainer from '../../containers/FlashCardsContainer'
 
 class Topic extends Component {
 
@@ -15,7 +15,7 @@ class Topic extends Component {
         <li>
           {topic.name} {topic.description}
           <button onClick={this.handleOnClick}> X </button>
-          <FlashCardsContainer topic={topic}/>
+          
         </li>
       </div>
     );
@@ -23,3 +23,5 @@ class Topic extends Component {
 };
 
 export default Topic;
+
+{/* <FlashCardsContainer topic={topic}/> */}
