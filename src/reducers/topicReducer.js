@@ -1,8 +1,8 @@
 const initialState = {
-  subTopics: [],
+  topics: [],
   loading: false}
 
-export default function subTopicReducer (state = initialState, action) {
+export default function topicReducer (state = initialState, action) {
   switch (action.type){
     case "FETCHING_TOPICS" : 
       return {...state, loading: true }

@@ -1,14 +1,14 @@
 // combineReducers
 import {combineReducers} from 'redux'
 import subjectReducer from "./subjectReducer"
-// import subTopicReducer from "./subTopicReducer"
+import topicReducer from "./topicReducer"
 import flashCardReducer from "./flashCardReducer"
 
 
 
 const rootReducer = combineReducers({
     subjects: subjectReducer,
-    // subTopics : subTopicReducer,
+    topics : topicReducer,
     flashCards: flashCardReducer
 })
 
