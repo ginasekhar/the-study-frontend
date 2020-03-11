@@ -15,23 +15,10 @@ export default function topicReducer (state = initialState, action) {
     case 'TOPIC_ADDED':
       return { ...state, topics: [...state.topics, action.topic], loading:false }
     case 'DELETE_TOPIC':
-      return state
-    case 'UPDATE_TOPIC':
-      return state
+      return { ...state, topics: [...state.topics.filter(topic => topic.id !== action.id)], loading:true }
+    case "TOPIC_DELETED" : 
+      return {...state, loading: true }
     default:
       return state
   }
 }
-
-// export default function subTopicReducer(state = initialState,
-//    action) {
-// switch (action.type) {
-//   case 'ADD_SUBTOPIC':
-//     return { ...state, subTopics: [...state.subTopics, action.subTopic] }
-//   case 'DELETE_FLASHCARD':
-//     return {
-//       ...state, subTopics: state.subTopics.filter(subTopic => subTopic.id !== action.id)      
-//     }
-//   default:
-//     return state;
-// }

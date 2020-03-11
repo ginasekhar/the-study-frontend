@@ -2,7 +2,7 @@ export const getTopics = () => {
   return (dispatch) => {
     dispatch({type: "FETCHING_TOPICS"})
 
-    let fetchURL = '/sub_topics'
+    const fetchURL = '/sub_topics'
     return fetch(fetchURL)
     .then (response => response.json())
     .then (topics => dispatch({type: "LOADED_TOPICS", payload: topics}))
@@ -14,7 +14,7 @@ export const addTopic = (topic) => {
   return (dispatch) => {
     dispatch({type: "ADD_TOPIC"}, topic)
 
-    let fetchURL = '/sub_topics'
+    const fetchURL = '/sub_topics'
     const configObj = {
       method: "POST",
       body: JSON.stringify(topic),
@@ -29,3 +29,21 @@ export const addTopic = (topic) => {
   }
 }
 
+export const deleteTopic = (id) => {
+  return (dispatch) => {
+    console.log("In function delete Topic")
+    dispatch({type: "DELETE_TOPIC"})
+
+    const fetchURL = `/sub_topics/${id}`
+    const configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    };
+    return fetch(fetchURL, configObj)
+    .then (response => response.json())
+    .then (topics => dispatch({type: "TOPIC_DELETED"}))
+  }
+}
