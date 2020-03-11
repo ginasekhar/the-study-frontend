@@ -12,7 +12,7 @@ export const getTopics = () => {
 export const addTopic = (topic) => {
   console.log("in function addTopic", topic)
   return (dispatch) => {
-    dispatch({type: "ADD_TOPIC"}, topic)
+    dispatch({type: "ADD_TOPIC", payload:topic} )
 
     const fetchURL = '/sub_topics'
     
