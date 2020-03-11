@@ -3,21 +3,20 @@ import TopicInput from '../components/topics/TopicInput'
 import Topics from '../components/topics/Topics'
 import { connect } from 'react-redux'
 
+
 class TopicsContainer extends Component {
   render() {
-  const topicsList = this.props.topics.filter(topic => topic.subject_id == this.props.match.params.id)
+    const subjectId = this.props.match.params.id
+    const topicsList = this.props.topics.filter(topic => topic.subject_id == subjectId )
   
     return (
       <div>
-        
-        {/* <TopicInput addTopic={this.props.addTopic} subjectId={this.props.subjectId}/>
-        <Topics deleteTopic={this.props.deleteTopic} topics={this.props.topics}/> */}
         <h3> In Topics container </h3>
+        <TopicInput subjectId={subjectId}/>
         <Topics topics={topicsList}/>
       </div>
     )
-  }
-  
+  }  
 }
 
 const mapStateToProps = (state) => { 
@@ -27,11 +26,11 @@ const mapStateToProps = (state) => {
   }
 }
 
+export default connect (mapStateToProps) (TopicsContainer)
 // const mapDispatchToProps = dispatch => ({
-//   addTopic: text => dispatch({ type: "ADD_TOPIC", text }),
+//   addTopic: topic => dispatch({ type: "ADD_TOPIC", topic }),
 //   deleteTopic: id => dispatch({ type: "DELETE_TOPIC", id })
 // })
 
-export default connect(mapStateToProps, {})(TopicsContainer)
-
-// export default TopicsContainer
+// export default connect(mapStateToProps, mapDispatchToProps)(TopicsContainer)
+{/* <Topics deleteTopic={this.props.deleteTopic} topics={this.props.topics}/> */}

@@ -10,11 +10,13 @@ export default function topicReducer (state = initialState, action) {
       return {...state, 
         topics: action.payload,
         loading:false}
-    case 'ADD_SUBTOPIC':
+    case 'ADD_TOPIC':
+      return { ...state, loading:true }
+    case 'TOPIC_ADDED':
+      return { ...state, topics: [...state.topics, action.topic], loading:false }
+    case 'DELETE_TOPIC':
       return state
-    case 'DELETE_SUBTOPIC':
-      return state
-    case 'UPDATE_SUBTOPIC':
+    case 'UPDATE_TOPIC':
       return state
     default:
       return state

@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { addTopic } from '../../actions/topics'
 
 class TopicInput extends Component {
   state = {
     name: '',
     description: '',
-    id: ''
+    subject_id: this.props.subjectId
   }
 
-  handleOnChange(event) {
+  handleOnChange = (event) => {
     const {name, value} = event.target
     this.setState({
       [name] : value,
     });
   }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.addTopic(this.state);
+    
+    const topic = {...this.state}
+    console.log("in handleonsubmit before calling addTopic", topic)
+    this.props.addTopic(topic);
+    
     this.setState({
       name: '',
       description: '',
-      id: ''
+      subject_id: this.props.subjectId
     });
   }
   render() {
@@ -50,4 +56,9 @@ class TopicInput extends Component {
   }
 };
 
-export default TopicInput;
+const mapDispatchToProps = dispatch => ({
+  addTopic: topic => dispatch({ type: "ADD_TOPIC", topic })
+})
+
+
+export default connect (null, mapDispatchToProps) (TopicInput);
