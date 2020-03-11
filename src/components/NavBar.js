@@ -12,12 +12,6 @@ class NavBar extends Component {
     this.props.getTopics()
   }
 
-  // handleOnClick = (event) => { 
-  //   event.preventDefault();
-  //   //this.props.getTopicsForSubject(event.target.id)
-  //   console.log ("I was clicked", event.target.id)
-  // } 
-
   render() {
     
     this.props.subjects.map(subject => console.log(subject.id, subject.name))
@@ -27,7 +21,6 @@ class NavBar extends Component {
           to={`/subjects/${subject.id}/sub_topics`} 
           key={subject.id}> 
             <button type="button" 
-              // onClick={this.handleOnClick} 
               id={subject.id}>
               {subject.name}
             </button>
@@ -60,6 +53,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {getSubjects, getTopics}) (NavBar)
-
-
-// export default NavBar
