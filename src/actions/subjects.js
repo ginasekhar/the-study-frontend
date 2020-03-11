@@ -1,5 +1,4 @@
 export const getSubjects = () => {
-  console.log("I am getting subjects")
   return (dispatch) => {
     dispatch({type: "FETCHING_SUBJECTS"})
     return fetch('/subjects')
