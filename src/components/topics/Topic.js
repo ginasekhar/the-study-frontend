@@ -4,8 +4,6 @@ import { addFlashCard, getFlashCards} from '../../actions/flashcards'
 import { deleteTopic} from '../../actions/topics'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import './Topic.css' 
-
 
 class Topic extends Component {
 
@@ -28,14 +26,17 @@ class Topic extends Component {
     const { topic } = this.props;
 
     return (
-      <div className="card">
+      <div className="topic-card">
         <li>
           <strong>{topic.name}</strong><br/><br/>{topic.description}<br/>
 
           <button topic-id={topic.id} className="delete" onClick={this.handleOnClickDelete}> X </button>
-
           <Link className="view-fc-link" 
-          to={`/sub_topics/${topic.id}/flash_cards`} 
+          to={{pathname: `/sub_topics/${topic.id}/flash_cards`,
+                    state: {
+                      topic: {topic}
+                    }
+                    }} 
           key={topic.id}> 
             <button type="button" 
               topic-id={topic.id} onClick={this.handleOnClickViewFC}>
@@ -43,9 +44,13 @@ class Topic extends Component {
             </button>
         </Link>  
         <Link className="add-flash-card" 
-          to={`/sub_topics/${topic.id}/flash_cards/new`} 
+          to={{pathname: `/sub_topics/${topic.id}/flash_cards/new`,
+                state: {
+                  topic: {topic}
+                }
+                }} 
           key={topic.id}> 
-            <button type="button" 
+            <button type="button" className="button"
               topic-id={topic.id} onClick={this.handleOnClickAddFC}>
               Add a FlashCard
             </button>
@@ -57,4 +62,3 @@ class Topic extends Component {
 };
 
 export default connect (null, {deleteTopic, getFlashCards, addFlashCard}) (Topic);
-
