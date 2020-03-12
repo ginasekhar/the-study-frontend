@@ -9,15 +9,16 @@
   pointer-events: none;
   display: inline-flex;
   align-items: left;
+  justify-content: left;
   float: left;
   content:url("logo.png");
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-} */
+}
 
 .App-header {
   background-color: #282c34;
@@ -25,9 +26,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-bottom: 0px;
 }
 
 .App-link {
@@ -49,4 +51,189 @@
   min-height: 600px;
   min-width: 1200px;
   opacity: 0.5;
+}
+
+.subjects-container {
+  background-color: brown;
+  min-width: 1200px;
+  min-height: 50px;
+  color: white;
+  align-items: center;
+}
+
+.subject-button {
+  /* border: none; */
+  color: black;
+  padding: 18px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button {
+  font-size: 1.0em;
+  color: black;
+  background-color: lightgrey;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: tan;
+}
+
+.column-layout {
+  max-width: 1400px;
+  background-color: white;
+  margin: 10px auto 0 auto;
+  line-height: 1.65;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  }
+  
+  .topics-container{
+  margin-bottom: 20px;
+  background-color: lightgrey;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+    
+  .flash-cards-container {
+  flex: 3;
+  order: 3;
+  background-color: #c0dbe2;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .flash-card-input-form {
+    flex: 2;
+    order: 2;
+    background-color: #c0dbe2;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .topic-input-container {
+    flex: 1;
+    order: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    height: 170px;
+    width: 300px;
+    border: 1px solid;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-align: left;
+    justify-content: flex-start;
+    border-radius: 10px;
+    border: 1px solid;
+    /* padding: 15px; */
+  }
+
+  .topics-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+  /* input {
+    margin: 15px auto;
+    display: inline;
+    width: 20%;
+    padding: 8px;
+    border: 1px solid gray;
+   } */
+  
+/* below is from pokemon */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: darkslategray;
+  margin: 0 auto;
+  height: 50px;
+}
+
+header h2 {
+  padding: 10px;
+  margin: 0;
+}
+
+main2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+div.topic-card {
+  background-color: #eeeeee;
+  height: 120px;
+  width: 300px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid
+}
+
+div.flash-card {
+  background-color: lightgoldenrodyellow;
+  height: 120px;
+  width: 300px;
+  box-shadow: 10px 10px grey;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid
+}
+
+p {
+  font-size: 1.5em;
+  color: black;
+  font-family: Helvetica;
+}
+
+li {
+  font-size: 1.05em;
+  list-style: none;
+  padding-right: 20px;
+}
+
+button {
+  font-size: 1.0em;
+  color: black;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+button.delete {
+  float: right;
+  background-color: red;
+}
+
+input[type=submit] {
+  background-color:darkblue;
+  font-size: 0.65em;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 500px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
