@@ -13,9 +13,9 @@ export default function topicReducer (state = initialState, action) {
     case 'ADD_TOPIC':
       return { ...state, loading:true }
     case 'TOPIC_ADDED':
-      return { ...state, topics: [...state.topics, action.topic], loading:false }
+      return { ...state, topics: [...state.topics, action.payload], loading:false }
     case 'DELETE_TOPIC':
-      return { ...state, topics: [...state.topics.filter(topic => topic.id !== action.id)], loading:true }
+      return { ...state, topics: [...state.topics.filter(topic => topic.id !== action.payload)], loading:true }
     case "TOPIC_DELETED" : 
       return {...state, loading: true }
     default:
