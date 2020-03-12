@@ -10,6 +10,8 @@ import NavBar from './components/NavBar';
 import './App.css';
 import logo from './logo.png';
 import TopicsContainer from './containers/TopicsContainer'
+import FlashCardsContainer from './containers/FlashCardsContainer'
+import FlashCardInput from './components/flashCards/FlashCardInput'
 
 
 class App extends Component {
@@ -28,8 +30,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/subjects/:id/sub_topics" component={TopicsContainer} />
-              {/* <Route exact path="/topics/:id/flash_cards" component={FlashCardsContainer} />
-              <Route exact path="/flash_card/:id" component={FlashCards} /> */}
+              <Route exact path="/sub_topics/:id/flash_cards" component={FlashCardsContainer} />
+              <Route exact path="/sub_topics/:id/flash_cards/new" component={FlashCardInput} /> 
             </Switch>
           </div>
         </Router>
