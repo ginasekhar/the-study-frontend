@@ -9,7 +9,7 @@ class Topics extends Component {
       topic={topic} />)
 
     return(
-      <ul>
+      <ul className="topics-list">
         {topicsList}
       </ul>
     );

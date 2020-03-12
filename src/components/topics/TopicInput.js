@@ -18,29 +18,31 @@ class TopicInput extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
+
+    const topic = {...this.state, subject_id: this.props.subjectId}
     
-    const topic = {...this.state}
-    console.log("in handleonsubmit before calling addTopic", topic)
+    console.log ("going to add topic", topic)
     this.props.addTopic(topic);
     
     this.setState({
       name: '',
       description: '',
-      subject_id: this.props.subjectId
+      subject_id: ''
     });
   }
   render() {
     return (
-      <div>
+      <div className="topic-input-form">
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
         <label>
+             <h4>Add a New Topic </h4> <br/>
             Enter Topic Name:
           <input
             type="text"
             name="name"
             value={this.state.name}
             onChange={(event) => this.handleOnChange(event)} />
-          </label>
+          </label> <br/>
           <label>
             Enter Topic Description:
           <input
@@ -48,17 +50,13 @@ class TopicInput extends Component {
             name="description"
             value={this.state.description}
             onChange={(event) => this.handleOnChange(event)} />
-          </label>
-          <input type="submit" value="Add Topic" />
+          </label> <br/>
+          <input type="submit" className="submit-button" value="Add Topic" />
         </form>
       </div>
     );
   }
 };
 
-const mapDispatchToProps = dispatch => ({
-  addTopic: topic => dispatch({ type: "ADD_TOPIC", topic })
-})
 
-
-export default connect (null, mapDispatchToProps) (TopicInput);
+export default connect (null, {addTopic}) (TopicInput);
