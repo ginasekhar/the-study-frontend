@@ -5,7 +5,13 @@ export const getFlashCards = (topicId) => {
     
     const fetchURL = `/sub_topics/${topicId}/flash_cards`
     return fetch(fetchURL)
-    .then (response => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Could not get flash cards')
+      }
+    })
     .then (flashcards => dispatch({type: "LOADED_FLASHCARDS", payload: flashcards}))
   }
 }
@@ -25,7 +31,13 @@ export const addFlashCard = (flashcard) => {
       } 
     }
     return fetch(fetchURL,configObj )
-    .then (response => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Could not create flash card')
+      }
+    })
     .then (flashcard => dispatch({type: "FLASHCARD_ADDED", payload: flashcard}))
   }
 }
@@ -44,6 +56,12 @@ export const deleteFlashCard = (id) => {
       }
     };
     return fetch(fetchURL, configObj)
-    .then (flashcards => dispatch({type: "FLASHCARD_DELETED"}))
+    .then (dispatch({type: "FLASHCARD_DELETED"}))
+    .catch((error) => {
+      alert(`${error} on delete flash card` )
+    }); 
   }
 }
+
+
+
