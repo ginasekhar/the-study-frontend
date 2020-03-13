@@ -5,9 +5,10 @@ class Home extends Component {
   render() {
     return (
       <div className="Home-page">
-        <h2>Welcome to "The Study".</h2> 
-        <h3>We are proud to have a collection of flash cards on a variety of topics </h3> 
-        <h3>Please click on one of the subject buttons above in the navigation bar to view topics available in each subject </h3>
+        <h2><br/>Welcome to "The Study".</h2> 
+        <h4> Here you can create your own flash cards for a variety of subjects</h4>
+        <h4>Please click on one of the subject buttons above in the navigation bar. You will see topics available in each subject. You can add additional topics or delete topics.  For each topic, click on the 'FlashCards' button to view all flashcards associate with that topic or to add a flash card for that topic. </h4>
+        <h3> <center> Happy Studying !! </center> </h3>
       </div>
     )
   }
