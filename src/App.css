@@ -139,12 +139,6 @@ button:hover {
     flex: 2;
     order: 3;
     flex-direction: row;
-    /* display: grid; */
-    /* grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 20px;
-    padding-top: 10px;
-    padding-bottom: 30px; */
   }
 
   .topics-ul {
@@ -165,13 +159,6 @@ button:hover {
     display: inline-flex;
     flex-wrap: wrap;
   }
-  /* input {
-    margin: 15px auto;
-    display: inline;
-    width: 20%;
-    padding: 8px;
-    border: 1px solid gray;
-   } */
   
 /* below is from pokemon */
 body {
