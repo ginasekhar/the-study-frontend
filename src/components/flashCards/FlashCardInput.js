@@ -7,8 +7,7 @@ class FlashCardInput extends Component {
   state = {
     question: '',
     answer: '',
-    id: '',
-    sub_topic_id: this.props.match.params.id
+    sub_topic_id: this.props.topicId
   }
 
   handleOnChange(event) {
@@ -20,41 +19,53 @@ class FlashCardInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
+    
+    
+    
+    const flashcard = {...this.state, sub_topic_id: this.props.topicId}
     console.log("going to call addFlashCard with param", this.state)
-    const flashcard = {...this.state, sub_topic_id: this.props.match.params.id}
     this.props.addFlashCard(flashcard);
 
-    this.setState({
+    this.setState({...this.state,
       question: '',
-    answer: '',
-    id: '',
-    sub_topic_id: ''
+    answer: ''
     });
   }
   render() {
 
     
     return (
-      <div className="flash-card-add-form">
+      <div className="flash-card-input-container">
+        <strong>Add a New Flash Card </strong> 
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-        <label>
-        <h4>Add a New Flash Card </h4> <br/>
-            Card Front:
-          <input
-            type="text"
-            name="question"
-            value={this.state.question}
-            onChange={(event) => this.handleOnChange(event)} />
-          </label>
-          <label>
-            Card Back:
-          <input
-            type="text"
-            name="answer"
-            value={this.state.answer}
-            onChange={(event) => this.handleOnChange(event)} />
-          </label>
-          <input type="submit" value="Add FlashCard" />
+        <div class="form-group form-control-sm">
+            <div class="input-group input-group-sm">
+              <div class="input-group-prepend">
+                <span class="input-group-text input-group-sm">Term</span>
+              </div>
+              <input
+                type="text"
+                name="question"
+                value={this.state.question}
+                onChange={(event) => this.handleOnChange(event)} 
+              />
+              </div>
+                <div class="form-group form-control-sm">
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text input-group-sm">Definition</span>
+                    </div>
+                    <input
+                      type="text"
+                      name="answer"
+                      value={this.state.answer}
+                      onChange={(event) => this.handleOnChange(event)} 
+                    />
+                    </div>
+                  </div>
+                  <input type="submit" className="submit-button btn-sm" 
+                  value="Add FlashCard" />
+                </div>
         </form>
       </div>
     );

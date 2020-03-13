@@ -50,3 +50,9 @@ export const deleteTopic = (id) => {
     .then (dispatch({type: "TOPIC_DELETED"}))
   }
 }
+
+export const setCurrentTopic = (selectedTopic) => {
+  return (dispatch) => {
+    dispatch({type: "SET_CURRENT_TOPIC", payload: selectedTopic })
+  }
+}

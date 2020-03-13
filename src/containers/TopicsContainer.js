@@ -7,18 +7,15 @@ import { connect } from 'react-redux'
 
 class TopicsContainer extends Component {
   render() {
+    let topicsList = [];
+
+    if (this.props.currentSubject.selected )
+       topicsList = this.props.topics.filter(topic => topic.subject_id == this.props.currentSubject.subjectId )
     
-    const subjectId = this.props.location.state.subject.subject.id
-    const subjectName = this.props.location.state.subject.subject.name
-    
-    let topicsList = this.props.topics.filter(topic => topic.subject_id == subjectId )
-    
-  
     return (
       <div className="topics-container">
-        <h3> Topics in {subjectName} </h3>
-        <TopicInput subjectId={subjectId}/>
-        <Topics topics={topicsList}/>
+        <TopicInput subjectId={this.props.currentSubject.subjectId}/>
+        <Topics subjectName={this.props.currentSubject.subjectName} topics={topicsList}/>
       </div>
     )
   }  
@@ -27,7 +24,7 @@ class TopicsContainer extends Component {
 const mapStateToProps = (state) => { 
   return {
     topics: state.topics.topics,
-    loadingtopics: state.topics.loading
+    currentSubject: state.subjects.currentSubject
   }
 }
 

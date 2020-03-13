@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-import { addFlashCard, getFlashCards} from '../../actions/flashcards'
-import { deleteTopic} from '../../actions/topics'
+import { deleteTopic, setCurrentTopic} from '../../actions/topics'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
@@ -12,14 +10,11 @@ class Topic extends Component {
     this.props.deleteTopic(this.props.topic.id)
   } 
 
-  handleOnClickAddFC = (event) => { 
-    console.log("just before call to addFC in Topic.js", this.props)
-    this.props.addFlashCard(this.props.topic.id)
-  } 
-
-  handleOnClickViewFC = (event) => { 
-    console.log("just before call to getFC in Topic.js", this.props)
-    this.props.getFlashCards(this.props.topic.id)
+  handleOnClickFC = (event) => { 
+    console.log ("in handle on click fc,",event.target.name)
+    console.log("set the current topic to", event.target.id)
+    const selectedTopic = { selected: true, topicId: event.target.id, topicName: event.target.name}
+    this.props.setCurrentTopic(selectedTopic);
   } 
 
   render() {
@@ -27,38 +22,22 @@ class Topic extends Component {
 
     return (
       <div className="topic-card">
-        <li>
-          <strong>{topic.name}</strong><br/><br/>{topic.description}<br/>
-
-          <button topic-id={topic.id} className="delete" onClick={this.handleOnClickDelete}> X </button>
+        <li id={topic.id}>
+          <strong>{topic.name}</strong> <br/>{topic.description}<br/>
+          
           <Link className="view-fc-link" 
-          to={{pathname: `/sub_topics/${topic.id}/flash_cards`,
-                    state: {
-                      topic: {topic}
-                    }
-                    }} 
-          key={topic.id}> 
-            <button type="button" 
-              topic-id={topic.id} onClick={this.handleOnClickViewFC}>
-              View FlashCards
-            </button>
-        </Link>  
-        <Link className="add-flash-card" 
-          to={{pathname: `/sub_topics/${topic.id}/flash_cards/new`,
-                state: {
-                  topic: {topic}
-                }
-                }} 
-          key={topic.id}> 
-            <button type="button" className="button"
-              topic-id={topic.id} onClick={this.handleOnClickAddFC}>
-              Add a FlashCard
-            </button>
-        </Link>  
+            to={`/sub_topics/${topic.id}/flash_cards`}
+            key={topic.id}> 
+              <button type="button" 
+                id={topic.id} name={topic.name} onClick={this.handleOnClickFC}>
+                 FlashCards
+              </button>
+          </Link>  
+          <button topic-id={topic.id} className="delete" onClick={this.handleOnClickDelete}> Delete Topic </button>
         </li>
       </div>
     );
   }
 };
 
-export default connect (null, {deleteTopic, getFlashCards, addFlashCard}) (Topic);
+export default connect (null, {deleteTopic, setCurrentTopic}) (Topic);

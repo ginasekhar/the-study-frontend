@@ -6,3 +6,9 @@ export const getSubjects = () => {
     .then (subjects => dispatch({type: "LOADED_SUBJECTS", payload: subjects}))
   }
 }
+
+export const setCurrentSubject = (selectedSubject) => {
+  return (dispatch) => {
+    dispatch({type: "SET_CURRENT_SUBJECT", payload: selectedSubject })
+  }
+}

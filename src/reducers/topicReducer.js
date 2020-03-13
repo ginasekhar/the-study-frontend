@@ -1,8 +1,10 @@
 const initialState = {
   topics: [],
+  currentTopic: {},
   loading: false}
 
 export default function topicReducer (state = initialState, action) {
+  
   switch (action.type){
     case "FETCHING_TOPICS" : 
       return {...state, loading: true }
@@ -18,6 +20,8 @@ export default function topicReducer (state = initialState, action) {
       return { ...state, topics: [...state.topics.filter(topic => topic.id !== action.payload)], loading:true }
     case "TOPIC_DELETED" : 
       return {...state, loading: true }
+    case "SET_CURRENT_TOPIC" : 
+      return {...state, currentTopic: action.payload }
     default:
       return state
   }
