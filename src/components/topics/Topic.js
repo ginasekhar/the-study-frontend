@@ -19,7 +19,7 @@ class Topic extends Component {
 
     return (
       <div className="topic-card">
-        <li id={topic.id}>
+        <li id={topic.id} key={topic.id}>
           <strong>{topic.name}</strong> <br/>{topic.description}<br/>
           
           <Link className="view-fc-link" 
