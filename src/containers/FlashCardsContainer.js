@@ -1,34 +1,37 @@
 import React, { Component } from 'react'
-// import FlashCardInput from '../components/flashCards/FlashCardInput'
+import FlashCardInput from '../components/flashCards/FlashCardInput'
 import FlashCards from '../components/flashCards/FlashCards'
+import { getFlashCards } from '../actions/flashcards'
 import { connect } from 'react-redux'
 
 class FlashCardsContainer extends Component {
 
   render() {
-    const topicId = this.props.location.state.topic.topic.id
     
-    // / const topicId = this.props.match.params.id
-    const topicName = this.props.location.state.topic.topic.name
-    
-    const flashCardsList = this.props.flashCards.filter(flashCard => flashCard.sub_topic.id == topicId )
-    
-    console.log("props are: ", this.props)
-    
-  
+    console.log("props", this.props)
+    const topicId = this.props.currentTopic.topicId
+    const topicName = this.props.currentTopic.topicName
+    let flashCardsList = [];
+
+    if (this.props.currentTopic.selected ) {
+      flashCardsList = this.props.flashCards.filter(flashCard => flashCard.sub_topic.id == topicId )
+    }
+       
     return (
       <div>
-        <h3> Flash Cards for {topicName} </h3>
-        <FlashCards flashCards={flashCardsList}/>
+        <FlashCardInput topicId={topicId}/>
+        
+        <FlashCards flashCards={flashCardsList} topicName={topicName}/>
       </div>
-    )
+  )
   }
 }
 const mapStateToProps = (state) => { 
   return {
     flashCards: state.flashCards.flashCards,
+    currentTopic: state.topics.currentTopic,
     loadingflashCards: state.flashCards.loading
   }
 }
 
-export default connect (mapStateToProps) (FlashCardsContainer)
+export default connect (mapStateToProps, { getFlashCards })(FlashCardsContainer)
