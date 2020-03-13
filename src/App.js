@@ -12,6 +12,8 @@ import logo from './logo.png';
 import TopicsContainer from './containers/TopicsContainer'
 import FlashCardsContainer from './containers/FlashCardsContainer'
 import FlashCardInput from './components/flashCards/FlashCardInput'
+import TopicInput from './components/topics/TopicInput'
+// import MainContainer from './containers/MainContainer';
 
 
 class App extends Component {
@@ -27,11 +29,16 @@ class App extends Component {
         <Router>
           <div className="App-routes">
             <NavBar />
+            {/* <MainContainer /> */}
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/subjects/:id/sub_topics" component={TopicsContainer} />
-              <Route exact path="/sub_topics/:id/flash_cards" component={FlashCardsContainer} />
-              <Route exact path="/sub_topics/:id/flash_cards/new" component={FlashCardInput} /> 
+              <div className="main">
+                <Route exact path="/" component={Home} />
+                <Route exact path="/subjects/:id/sub_topics/new" component={TopicInput} />
+                <Route exact path="/subjects/:id/sub_topics" component={TopicsContainer} />
+                <Route exact path="/sub_topics/:id/flash_cards/new" component={FlashCardInput} /> 
+                <Route exact path="/sub_topics/:id/flash_cards" component={FlashCardsContainer} />
+                
+              </div>
             </Switch>
           </div>
         </Router>
