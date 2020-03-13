@@ -18,11 +18,10 @@ class FlashCardsContainer extends Component {
        
     return (
       <div>
-        <FlashCardInput topicId={topicId}/>
-        
+        <FlashCardInput topicId={topicId}/> 
         <FlashCards flashCards={flashCardsList} topicName={topicName}/>
       </div>
-  )
+    )
   }
 }
 const mapStateToProps = (state) => { 

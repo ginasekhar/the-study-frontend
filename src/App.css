@@ -146,8 +146,6 @@ button:hover {
     flex-wrap: wrap;
   }
 
-  
-
   .flash-cards-list {
     flex: 1;
     order: 2;
@@ -186,6 +184,11 @@ main2 {
   padding-bottom: 30px;
 }
 
+div.card {
+  background-color: #ffe6cc;
+  
+}
+
 div.topic-card {
   background-color: #eeeeee;
   height: 150px;
@@ -197,7 +200,7 @@ div.topic-card {
 }
 
 div.flash-card {
-  background-color: lightgoldenrodyellow;
+  background-color: #fff3e6;
   height: 200px;
   width: 400px;
   box-shadow: 10px 10px grey;
@@ -227,7 +230,8 @@ button {
 
 button.delete {
   float: right;
-  background-color: red;
+  background-color: brown;
+  color: white
 }
 
 input[type=submit] {

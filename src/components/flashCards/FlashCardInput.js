@@ -20,15 +20,13 @@ class FlashCardInput extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     
-    
-    
     const flashcard = {...this.state, sub_topic_id: this.props.topicId}
   
     this.props.addFlashCard(flashcard);
 
     this.setState({...this.state,
       question: '',
-    answer: ''
+      answer: ''
     });
   }
   render() {

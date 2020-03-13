@@ -14,16 +14,16 @@ class FlashCards extends Component {
       else 
         displayMsg = "Please select a topic"
       
-        return (
-        <div className="flash-cards-list flex-column flex-wrap">
-          <h4> {displayMsg} </h4>
-          <ul className="flash-cards-ul">
-            {flashCardsList} 
-          </ul>
-        </div>
-      );
+    return (
+      <div className="flash-cards-list flex-column flex-wrap">
+        <h4> {displayMsg} </h4>
+        <ul className="flash-cards-ul">
+          {flashCardsList} 
+        </ul>
+      </div>
+    );
 
-    }
+  }
 };
 
 export default FlashCards;

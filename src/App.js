@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import Home from './containers/Home'
+import Home from './components/Home'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavBar from './containers/NavBar';
 import './App.css';
 import logo from './logo.png';
 import TopicsContainer from './containers/TopicsContainer'
@@ -29,7 +29,6 @@ class App extends Component {
         <Router>
           <div className="App-routes">
             <NavBar />
-            {/* <MainContainer /> */}
             <Switch>
               <div className="main">
                 <Route exact path="/" component={Home} />
