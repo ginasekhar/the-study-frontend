@@ -13,11 +13,11 @@ class FlashCard extends Component {
     const { flashcard } = this.props;
     
     return (
-      <div>
-        <li>
-        <strong>{flashcard.question}</strong><br/>{flashcard.answer}
+      <div className="flash-card">
+        <li key={flashcard.id}>
+        <strong>{flashcard.question}</strong><br/>{flashcard.answer}  
+        <button fc-id={flashcard.id} className="delete" onClick={this.handleOnClick}> Delete Card </button>
         </li>
-        <button fc-id={flashcard.id} className="delete" onClick={this.handleOnClick}> X </button>
       </div>
     );
   }
