@@ -5,14 +5,13 @@ import Topic from './Topic'
 class Topics extends Component {
   render() {
 
-    const topicsList =  this.props.topics.map(topic =>  <Topic 
-      key={topic.id} 
-      topic={topic} />)
-      let displayMsg;
-      if (this.props.subjectName)
-        displayMsg = (topicsList.length > 0 ? "Topics in " + this.props.subjectName: "No Topics found for " + this.props.subjectName)
-      else 
-        displayMsg = "Please select a subject"
+    const topicsList =  this.props.topics.map(topic =>  <Topic key={topic.id} topic={topic} />)
+
+    let displayMsg;
+    if (this.props.subjectName)
+      displayMsg = (topicsList.length > 0 ? "Topics in " + this.props.subjectName: "No Topics found for " + this.props.subjectName)
+    else 
+      displayMsg = "Please select a subject"
        
 
     return(
