@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom';
 class Topic extends Component {
 
   handleOnClickDelete = (event) => { 
-    console.log("just before call to deleteTopic in Topic.js", this.props)
     this.props.deleteTopic(this.props.topic.id)
   } 
 
   handleOnClickFC = (event) => { 
-    console.log ("in handle on click fc,",event.target.name)
-    console.log("set the current topic to", event.target.id)
     const selectedTopic = { selected: true, topicId: event.target.id, topicName: event.target.name}
     this.props.setCurrentTopic(selectedTopic);
   } 

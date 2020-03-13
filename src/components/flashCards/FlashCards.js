@@ -4,8 +4,6 @@ import FlashCard from './FlashCard';
 class FlashCards extends Component {
   render() {
 
-    
-    console.log("In FlashCards, I got passed in", this.props.flashcards)
     const myflashCards =  this.props.flashCards.map(flashCard => 
        <FlashCard key={flashCard.id} flashcard={flashCard} />
     )

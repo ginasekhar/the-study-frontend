@@ -8,7 +8,6 @@ class FlashCardsContainer extends Component {
 
   render() {
     
-    console.log("props", this.props)
     const topicId = this.props.currentTopic.topicId
     const topicName = this.props.currentTopic.topicName
     let flashCardsList = [];

@@ -18,7 +18,7 @@ class NavBar extends Component {
   handleOnClick = (event) => { 
     
     let selectedSubject;
-    console.log("event target in navbar", event.target)
+    
     if (event.target.name === "application-home")
       selectedSubject = { selected: false, subjectId: null, subjectName: ''}
     else
@@ -29,8 +29,6 @@ class NavBar extends Component {
 
 
   render() {
-    
-    this.props.subjects.map(subject => console.log(subject.id, subject.name))
     
     const subjectsList = this.props.subjects.map(subject => 
         <Link className="nav-button" 

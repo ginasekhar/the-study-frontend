@@ -23,7 +23,7 @@ class FlashCardInput extends Component {
     
     
     const flashcard = {...this.state, sub_topic_id: this.props.topicId}
-    console.log("going to call addFlashCard with param", this.state)
+  
     this.props.addFlashCard(flashcard);
 
     this.setState({...this.state,

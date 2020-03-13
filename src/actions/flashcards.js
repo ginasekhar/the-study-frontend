@@ -1,5 +1,5 @@
 export const getFlashCards = (topicId) => {
-  console.log("I am in function getFlashCards", topicId)
+  
   return (dispatch) => {
     dispatch({type: "FETCHING_FLASHCARDS"})
     
@@ -17,7 +17,7 @@ export const getFlashCards = (topicId) => {
 }
 
 export const addFlashCard = (flashcard) => {
-  console.log("in function addFlashCard", flashcard)
+  
   return (dispatch) => {
     dispatch({type: "ADD_FLASHCARD", payload: flashcard})
 
@@ -44,7 +44,7 @@ export const addFlashCard = (flashcard) => {
 
 export const deleteFlashCard = (id) => {
   return (dispatch) => {
-    console.log("In function delete FlashCard")
+    
     dispatch({type: "DELETE_FLASHCARD",payload: id})
 
     const fetchURL = `/flash_cards/${id}`

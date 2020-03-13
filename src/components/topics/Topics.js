@@ -4,7 +4,7 @@ import Topic from './Topic'
 
 class Topics extends Component {
   render() {
-    console.log(this.props)
+
     const topicsList =  this.props.topics.map(topic =>  <Topic 
       key={topic.id} 
       topic={topic} />)
