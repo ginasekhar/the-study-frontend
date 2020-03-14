@@ -35,8 +35,7 @@ class App extends Component {
                 <Route exact path="/subjects/:id/sub_topics/new" component={TopicInput} />
                 <Route exact path="/subjects/:id/sub_topics" component={TopicsContainer} />
                 <Route exact path="/sub_topics/:id/flash_cards/new" component={FlashCardInput} /> 
-                <Route exact path="/sub_topics/:id/flash_cards" component={FlashCardsContainer} />
-                
+                <Route exact path="/sub_topics/:id/flash_cards" component={FlashCardsContainer} />     
               </div>
             </Switch>
           </div>
