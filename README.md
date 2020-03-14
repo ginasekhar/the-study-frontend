@@ -19,6 +19,6 @@ Upon opening the application you are brought to the home page.  Select one of th
 
 You can click on the 'Delete Topic' button to delete that topic.
 
-Upon clicking the 'Flash Cards' button, You will see a list of all flash cards available for that topic as well as an input form that allows you to add a new flash card for that topic. You can click on the 'Delete Card' button to delete that flash card.
+Upon clicking the 'Flash Cards' button, You will see a list of all flash cards available for that topic as well as an input form that allows you to add a new flash card for that topic. On each flash card, if you click on the 'term', the definition will be displayed.  Clicking on it again will hide the definition again. You can click on the 'Delete Card' button to delete that flash card.
 
 
