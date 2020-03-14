@@ -10,7 +10,7 @@ class FlashCards extends Component {
 
     let displayMsg;
       if (this.props.topicName)
-        displayMsg = (flashCardsList.length > 0 ? "Flash Cards in " + this.props.topicName : "No Topics found for " + this.props.topicName)
+        displayMsg = (flashCardsList.length > 0 ? "Flash Cards in " + this.props.topicName : "No Flash Cards found for " + this.props.topicName)
       else 
         displayMsg = "Please select a topic"
       
