@@ -8,6 +8,8 @@ class Home extends Component {
         <h2><br/>Welcome to "The Study".</h2> 
         <p>Here you can create your own flash cards for a variety of subjects.<br/>Please click on one of the subject buttons above in the navigation bar to see topics available in that subject.<br/> You can add additional topics or delete topics.<br/> To view or add flash cards, click on the 'FlashCards' button on the topic.<br/></p>
         <h3> <center> Happy Studying !! </center> </h3>
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <div>Logo made by <a href="https://www.designevo.com/logo-maker/" title="Free Online Logo Maker">DesignEvo free logo creator</a></div>
       </div>
     )
   }
