@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## THE STUDY Application 
 
-This application is a study tool.  It allows students to create sets of flash cards by topic under predefined subjects.  This helps them test and reinforce their knowledge.  This is a front end that works with the "The Study" backend api.  (https://github.com/ginasekhar/the-study-backend.git)
+This application is a study tool.  It allows students to create sets of flash cards by topic under predefined subjects.  This helps them test and reinforce their knowledge.  This is a front end that works with the "The Study" backend api. The backend must set up for this application to work. The repository for the backend can found at (https://github.com/ginasekhar/the-study-backend.git)
 
 ## Available Scripts
 
