@@ -35,22 +35,22 @@ class TopicInput extends Component {
       <div className="topic-input-container">
         <strong>Add a New Topic </strong> 
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <div class="form-group form-control-sm">
-            <div class="input-group input-group-sm">
-              <div class="input-group-prepend">
-                <span class="input-group-text input-group-sm">Topic Name</span>
+          <div className="form-group form-control-sm">
+            <div className="input-group input-group-sm">
+              <div className="input-group-prepend">
+                <span className="input-group-text input-group-sm">Topic Name</span>
               </div>
-              <input class="form-control" placeholder="Topic Name"
+              <input className="form-control" placeholder="Topic Name"
                 type="text" name="name" value={this.state.name}
                 onChange={(event) => this.handleOnChange(event)} 
               />
             </div>
-            <div class="form-group form-control-sm">
-              <div class="input-group input-group-sm">
-                <div class="input-group-prepend">
-                  <span class="input-group-text input-group-sm">Description</span>
+            <div className="form-group form-control-sm">
+              <div className="input-group input-group-sm">
+                <div className="input-group-prepend">
+                  <span className="input-group-text input-group-sm">Description</span>
                 </div>
-                <input class="form-control" placeholder="Topic Description"
+                <input className="form-control" placeholder="Topic Description"
                   type="text" name="description" value={this.state.description}
                   onChange={(event) => this.handleOnChange(event)} 
                 />
