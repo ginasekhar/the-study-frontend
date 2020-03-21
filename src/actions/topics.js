@@ -6,6 +6,9 @@ export const getTopics = () => {
     return fetch(fetchURL)
     .then (response => response.json())
     .then (topics => dispatch({type: "LOADED_TOPICS", payload: topics}))
+    .catch((error) => {
+      alert(`${error} on Fetching Topics` )
+    }); 
   }
 }
 
@@ -29,6 +32,9 @@ export const addTopic = (topic) => {
     .then (topic => {
       dispatch({type: "TOPIC_ADDED", payload: topic})
     })
+    .catch((error) => {
+      alert(`${error} on Creating New Topic` )
+    }); 
   }
 }
 
@@ -46,6 +52,9 @@ export const deleteTopic = (id) => {
     };
     return fetch(fetchURL, configObj)
     .then (dispatch({type: "TOPIC_DELETED"}))
+    .catch((error) => {
+      alert(`${error} on Deleting Topic` )
+    }); 
   }
 }
 

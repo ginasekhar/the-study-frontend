@@ -13,11 +13,14 @@ export const getFlashCards = (topicId) => {
       }
     })
     .then (flashcards => dispatch({type: "LOADED_FLASHCARDS", payload: flashcards}))
+    .catch((error) => {
+      alert(`${error} on Fetching Flashcards` )
+    }); 
   }
 }
 
 export const addFlashCard = (flashcard) => {
-  
+  console.log('b')
   return (dispatch) => {
     dispatch({type: "ADD_FLASHCARD", payload: flashcard})
 
@@ -33,13 +36,18 @@ export const addFlashCard = (flashcard) => {
     return fetch(fetchURL,configObj )
     .then((response) => {
       if (response.ok) {
+        console.log('c')
         return response.json();
       } else {
         throw new Error('Could not create flash card')
       }
     })
     .then (flashcard => dispatch({type: "FLASHCARD_ADDED", payload: flashcard}))
+    .catch((error) => {
+      alert(`${error} on Creating New Flash Card` )
+    }); 
   }
+  console.log('d')
 }
 
 export const deleteFlashCard = (id) => {
